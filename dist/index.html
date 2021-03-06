@@ -13,11 +13,42 @@
     <div id="formProjectWrap">
       <label for="formProjectName">
         PROJECT NAME<br />
-        <input id="formProjectName" type="text" />
+        <input id="formProjectName" type="text" required />
       </label>
       <label for="formProjectDescription">Description</label>
       <br />
       <textarea id="formProjectDescription" type="text"></textarea>
+      <button id="formProjectCreateProject">Create Project</button>
+      <button id="formProjectCancelAction">Cancel action</button>
+    </div>
+  </div>
+  <div id="formToDoWhole">
+    <div id="formToDoWrap">
+      <label for="formToDoName">
+        TO DO NAME <br />
+        <input id="formToDoName" type="text" required /> <br />
+      </label>
+      <label for="formToDoDescription"> Description </label><br />
+      <textarea id="formToDoDescription" type="text"></textarea> <br />
+      <label for="formToDoDate">Due date:</label><br />
+      <input type="date" id="formToDoDate" " min="2021-03-06"
+      value="2021-03-06"/><br />
+      <label for="formToDoPriority">Priority: <br /></label>
+      <select id="formToDoPriority">
+        <option id="emptyPriority"></option>
+        <option value="lowPriority">Low</option>
+        <option value="mediumPriority">Medium</option>
+        <option value="H+ighPriority">High</option></select
+      ><br />
+      <label> Status: </label><br />
+      <select id="formToDoStatus">
+        <option value="emptyStatus"></option>
+        <option value="doneStatus">Done</option>
+        <option value="notDoneStatus">To Do</option>
+      </select>
+      <button id="formToDoCreateTodo">Create ToDo</button>
+      <button id="formToDoCancelToDo">Cancel action</button>
+      <!-- how to set today as value?-->
     </div>
   </div>
   <!-- forms = project & todo-->
@@ -27,7 +58,7 @@
         <h1>To-Do List</h1>
       </div>
       <div id="mid">
-        <div id="sideBar">
+        <nav id="sideBar">
           <button id="addProject">+Add project</button>
           <!--gonna delete, just test-->
           <div>
@@ -36,7 +67,7 @@
             <p>description</p>
           </div>
           <!--gonna delete just test-->
-        </div>
+        </nav>
         <div id="midContent">
           <button id="addToDo">+Add ToDo</button>
           <div id="toDoItemWrap">
