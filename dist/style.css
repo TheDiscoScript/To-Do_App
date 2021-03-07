@@ -159,7 +159,6 @@ textarea {
   border-right: rgb(254, 199, 47) solid;
 }
 #sideBar > div {
-  border-bottom: rgb(254, 199, 47) solid;
   display: block;
   width: 80%;
 }
@@ -173,6 +172,9 @@ textarea {
   padding: 10px;
   margin: 0px;
   font-size: 1.5rem;
+}
+#fkingProjectContainer > div {
+  border-bottom: rgb(254, 199, 47) solid;
 }
 
 #midContent {
