@@ -9,6 +9,7 @@
     <script src="main.js" defer></script>
   </head>
   <!--forms = project & todo-->
+  <!--project create-->
   <div id="formProjectWhole">
     <div id="formProjectWrap">
       <label for="formProjectName">
@@ -22,6 +23,21 @@
       <button id="formProjectCancelAction">Cancel action</button>
     </div>
   </div>
+  <!--project edit-->
+  <div id="formProjectWholeEdit">
+    <div id="formProjectWrapEdit">
+      <label for="formProjectNameEdit">
+        PROJECT NAME<br />
+        <input id="formProjectNameEdit" type="text" required />
+      </label>
+      <label for="formProjectDescriptionEdit">Description</label>
+      <br />
+      <textarea id="formProjectDescriptionEdit" type="text"></textarea>
+      <button id="formProjectUpdateProject">Update Project</button>
+      <button id="formProjectCancelActionEdit">Cancel action</button>
+    </div>
+  </div>
+  <!--todo create-->
   <div id="formToDoWhole">
     <div id="formToDoWrap">
       <label for="formToDoName">
