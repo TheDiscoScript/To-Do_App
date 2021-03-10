@@ -13,6 +13,16 @@ function abot1() {
     "formProjectCreateProject"
   );
 
+  const formProjectWrapEdit = document.getElementById("formProjectWholeEdit");
+  const updateFormButton = document.getElementById("formProjectUpdateProject");
+  const cancelEditFormButton = document.getElementById(
+    "formProjectCancelActionEdit"
+  );
+  const formProjectNameEdit = document.getElementById("formProjectNameEdit");
+  const formProjectDescriptionEdit = document.getElementById(
+    "formProjectDescriptionEdit"
+  );
+
   return {
     projectContainer,
     formProjectWrap,
@@ -21,6 +31,11 @@ function abot1() {
     formProjectName,
     formProjectDescription,
     createProjectButton,
+    updateFormButton,
+    cancelEditFormButton,
+    formProjectNameEdit,
+    formProjectDescriptionEdit,
+    formProjectWrapEdit,
   };
 }
 const holderDom = abot1();

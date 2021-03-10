@@ -21,7 +21,16 @@ let database = [
     //todo:{}
   },
 ];
-
+//0 items in database array
+function createDummy() {
+  let object = {
+    id: 0,
+    title: "Base project",
+    description: "You can edit this project",
+  };
+  database.push(object);
+  return database;
+}
 function createID() {
   let increment = database[database.length - 1];
   let incrementId = increment.id;
@@ -48,15 +57,17 @@ function pushIntoDatabase() {
   return database;
 }
 function removeProject() {
-  // const index = database.indexOf(event.target);
-  // if (index > -1) {
-  //  database.splice(index, 1);
-  //}
   database.splice(event.target.getAttribute("data-delete"), 1);
+  if (!database.length) {
+    createDummy();
+    renderHolder.render();
+  }
   updateID();
   renderHolder.render();
 }
-
+function editProject() {
+  //
+}
 const databaseHolder = {
   database,
   createID,

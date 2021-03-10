@@ -6,8 +6,11 @@ import databaseHolder from "./database";
 
 //toDo items functions inc
 
-//editProject
-
+//editProject cancel
+holderDom.cancelEditFormButton.addEventListener("click", (e) => {
+  renderHolder.resetFormEdit();
+  holderDom.formProjectWrapEdit.setAttribute("id", "formProjectWholeNoneEdit");
+});
 //add project => shows form
 holderDom.addProjectButton.addEventListener("click", (e) => {
   holderDom.formProjectWrap.setAttribute("id", "formProjectWholeAbsolute");
