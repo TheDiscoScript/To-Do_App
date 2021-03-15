@@ -2,13 +2,17 @@ import holderDom from "./holdersForDom";
 import renderHolder from "./formRender";
 import databaseHolder from "./database";
 
-//removeProject
-
 //toDo items functions inc
 
 //editProject cancel
 holderDom.cancelEditFormButton.addEventListener("click", (e) => {
   renderHolder.resetFormEdit();
+  holderDom.formProjectWrapEdit.setAttribute("id", "formProjectWholeNoneEdit");
+});
+//editProject update
+holderDom.updateFormButton.addEventListener("click", (e) => {
+  databaseHolder.updateProject();
+  renderHolder.render();
   holderDom.formProjectWrapEdit.setAttribute("id", "formProjectWholeNoneEdit");
 });
 //add project => shows form

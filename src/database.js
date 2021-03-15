@@ -1,7 +1,23 @@
 import holderDom from "./holdersForDom";
 import renderHolder from "./formRender";
 
-let database = [
+//LOCAL STORAGE
+const LOCAL_STORAGE_DATABASE_KEY = "task.wholeDatabase";
+let database = JSON.parse(localStorage.getItem(LOCAL_STORAGE_DATABASE_KEY)) || [
+  {
+    id: 0,
+    title: "This is the name of project",
+    description:
+      "Each project has a name and a description. You can either delete or edit them",
+    //todo:{}
+  },
+];
+function saveToLocalStorage() {
+  localStorage.setItem(LOCAL_STORAGE_DATABASE_KEY, JSON.stringify(database));
+}
+//LOCAL STORAGE
+
+/*let database = [
   {
     id: 0,
     title: "test0",
@@ -20,13 +36,13 @@ let database = [
     description: "penízek2",
     //todo:{}
   },
-];
+];*/
 //0 items in database array
 function createDummy() {
   let object = {
     id: 0,
     title: "Base project",
-    description: "You can edit this project",
+    description: "Your project list will never be empty!",
   };
   database.push(object);
   return database;
@@ -54,6 +70,7 @@ function pushIntoDatabase() {
     description: holderDom.formProjectDescription.value,
   };
   database.push(object);
+  saveToLocalStorage();
   return database;
 }
 function removeProject() {
@@ -63,15 +80,42 @@ function removeProject() {
     renderHolder.render();
   }
   updateID();
+  saveToLocalStorage();
   renderHolder.render();
 }
 function editProject() {
-  //
+  holderDom.formProjectWrapEdit.setAttribute(
+    "id",
+    "formProjectWholeAbsoluteEdit"
+  );
+  holderDom.formProjectNameEdit.value =
+    event.target.parentNode.childNodes[2].textContent;
+  holderDom.formProjectDescriptionEdit.value =
+    event.target.parentNode.childNodes[3].textContent;
+  let indexOfProject = event.target.parentNode.getAttribute("data-projectid");
+  holderDom.updateFormButton.setAttribute("data-databaseindex", indexOfProject);
 }
+function updateProject() {
+  let indexInDatabase = holderDom.updateFormButton.getAttribute(
+    "data-databaseindex"
+  );
+  let selectedProject = database[indexInDatabase];
+  if (holderDom.formProjectNameEdit.value == "") {
+    alert("Your project needs a name. It cannot be saved without a name.");
+  } else {
+    selectedProject.title = holderDom.formProjectNameEdit.value;
+    selectedProject.description = holderDom.formProjectDescriptionEdit.value;
+  }
+  saveToLocalStorage();
+}
+
 const databaseHolder = {
   database,
   createID,
   pushIntoDatabase,
   removeProject,
+  editProject,
+  updateProject,
+  saveToLocalStorage,
 };
 export default databaseHolder;

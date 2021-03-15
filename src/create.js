@@ -13,6 +13,7 @@ function create(arg) {
     image2.dataset.delete = project.id;
     image2.classList.add("delBut");
     const title = document.createElement("p");
+    title.classList.add("titleOfProject");
     title.textContent = project.title;
     const description = document.createElement("p");
     description.textContent = project.description;

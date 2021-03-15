@@ -18,21 +18,16 @@ function resetFormEdit() {
 function render() {
   clearContainer(holderDom.projectContainer);
   createHolder.create(databaseHolder.database);
-  //fuck delete listener
+  //delete listener
   document.querySelectorAll("[data-delete]").forEach((button) => {
     button.addEventListener("click", (event) => {
       databaseHolder.removeProject();
     });
   });
-  //fuck2 edit listener
+  // edit listener
   document.querySelectorAll("[data-edit]").forEach((button) => {
     button.addEventListener("click", (event) => {
-      holderDom.formProjectWrapEdit.setAttribute(
-        "id",
-        "formProjectWholeAbsoluteEdit"
-      );
-      holderDom.formProjectNameEdit.value =
-        event.target.parentNode.childNode[2].textContent;
+      databaseHolder.editProject();
     });
   });
 }
