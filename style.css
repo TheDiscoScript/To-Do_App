@@ -211,6 +211,10 @@ textarea {
   padding-top: 1rem;
   border-right: rgb(254, 199, 47) solid;
 }
+.titleOfProject {
+  font-weight: bold;
+  font-style: italic;
+}
 #sideBar > div {
   display: block;
   width: 80%;
