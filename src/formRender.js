@@ -29,7 +29,6 @@ function render() {
     button.addEventListener("click", (event) => {
       databaseHolder.editProject();
     });
-    console.log(databaseHolder.selectedProjectID);
   });
 }
 

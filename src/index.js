@@ -1,8 +1,7 @@
 import holderDom from "./holdersForDom";
 import renderHolder from "./formRender";
+import renderToDoHolder from "./toDoRender";
 import databaseHolder from "./database";
-
-//toDo items functions inc
 
 //editProject cancel
 holderDom.cancelEditFormButton.addEventListener("click", (e) => {
@@ -44,6 +43,15 @@ holderDom.projectContainer.addEventListener("click", (e) => {
     renderHolder.render();
   }
 });
+//toDo items functions inc
+holderDom.addToDoButton.addEventListener("click", (e) => {
+  holderDom.formToDoDate.value = renderToDoHolder.getTodayDate();
+  holderDom.toDoWrapWhole.setAttribute("id", "formToDoWholeAbsolute");
+});
+holderDom.formToDoCancelToDo.addEventListener("click", (e) => {
+  renderToDoHolder.resetToDo();
+});
+
 function initialize() {
   renderHolder.render();
 }

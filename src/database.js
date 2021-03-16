@@ -1,5 +1,6 @@
 import holderDom from "./holdersForDom";
 import renderHolder from "./formRender";
+import renderToDoHolder from "./toDoRender";
 
 //LOCAL STORAGE
 const LOCAL_STORAGE_DATABASE_KEY = "task.wholeDatabase";
@@ -9,7 +10,24 @@ let database = JSON.parse(localStorage.getItem(LOCAL_STORAGE_DATABASE_KEY)) || [
     title: "This is the name of project",
     description:
       "Each project has a name and a description. You can either delete or edit them",
-    //todo:{}
+    todo: [
+      {
+        id: "0",
+        title: "To-Do Name",
+        description: "To-Do Description",
+        date: renderToDoHolder.getTodayDate(),
+        priority: "",
+        status: "",
+      },
+      {
+        id: "1",
+        title: "To-Do Name 1",
+        description: "To-Do Description 2",
+        date: renderToDoHolder.getTodayDate(),
+        priority: "",
+        status: "",
+      },
+    ],
   },
 ];
 const LOCAL_STORAGE_SELECTED_DATABASE_KEY = "task.selectedProject";
@@ -28,19 +46,14 @@ function saveToLocalStorage() {
     id: 0,
     title: "test0",
     description: "peniz0",
-    //todo:{}
-  },
-  {
-    id: 1,
-    title: "test1",
-    description: "penízek1",
-    //todo:{}
-  },
-  {
-    id: 2,
-    title: "test2",
-    description: "penízek2",
-    //todo:{}
+    todo:{
+      id:
+      title: "test0",
+      description: "test0 description",
+      date: "YYYY-MM-DD",
+      priority: "",
+      status: ""
+    }
   },
 ];*/
 //0 items in database array
@@ -49,6 +62,14 @@ function createDummy() {
     id: 0,
     title: "Base project",
     description: "Your project list will never be empty!",
+    todo: {
+      id: "0",
+      title: "To-Do Name",
+      description: "You can put your description here!",
+      date: renderToDoHolder.getTodayDate(),
+      priority: "",
+      status: "",
+    },
   };
   database.push(object);
   return database;

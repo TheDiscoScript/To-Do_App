@@ -31,5 +31,19 @@ function create(arg) {
   });
 }
 
+//database [{xxx, todo[{}]}]
+function createToDo(arg) {
+  arg.forEach((project) => {
+    const toDoDiv = document.createElement("div");
+    const deleteImage = document.createElement("img");
+    const editImage = document.createElement("img");
+    const toDoTitle = document.createElement("p");
+    const toDoDate = document.createElement("p");
+    const toDoPriority = document.createElement("p");
+    const toDoCheckList = document.createElement("p");
+    const toDoDescription = document.createElement("p");
+  });
+}
+
 const createHolder = { create };
 export default createHolder;
