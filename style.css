@@ -215,6 +215,10 @@ textarea {
   font-weight: bold;
   font-style: italic;
 }
+.selectedProject {
+  border: 5px orangered solid;
+  border-radius: 10px;
+}
 #sideBar > div {
   display: block;
   width: 80%;
