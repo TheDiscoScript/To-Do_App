@@ -33,7 +33,17 @@ holderDom.createProjectButton.addEventListener("click", (e) => {
   renderHolder.render();
   renderHolder.resetForm();
 });
+//selected project event listener
+holderDom.projectContainer.addEventListener("click", (e) => {
+  if (e.target.parentNode.tagName.toLowerCase() === "div") {
+    //e.target.parentNode.classList.add("selectedProject");
 
+    databaseHolder.selectedProjectID = e.target.parentNode.dataset.projectid;
+    databaseHolder.saveToLocalStorage();
+
+    renderHolder.render();
+  }
+});
 function initialize() {
   renderHolder.render();
 }

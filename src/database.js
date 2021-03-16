@@ -12,8 +12,14 @@ let database = JSON.parse(localStorage.getItem(LOCAL_STORAGE_DATABASE_KEY)) || [
     //todo:{}
   },
 ];
+const LOCAL_STORAGE_SELECTED_DATABASE_KEY = "task.selectedProject";
+let selectedProjectID = localStorage.getItem(
+  LOCAL_STORAGE_SELECTED_DATABASE_KEY
+);
+
 function saveToLocalStorage() {
   localStorage.setItem(LOCAL_STORAGE_DATABASE_KEY, JSON.stringify(database));
+  localStorage.setItem(LOCAL_STORAGE_SELECTED_DATABASE_KEY, selectedProjectID);
 }
 //LOCAL STORAGE
 
@@ -117,5 +123,6 @@ const databaseHolder = {
   editProject,
   updateProject,
   saveToLocalStorage,
+  selectedProjectID,
 };
 export default databaseHolder;

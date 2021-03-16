@@ -1,4 +1,5 @@
 import holderDom from "./holdersForDom";
+import databaseHolder from "./database";
 
 function create(arg) {
   arg.forEach((project) => {
@@ -23,6 +24,10 @@ function create(arg) {
     projectDiv.appendChild(image2);
     projectDiv.appendChild(title);
     projectDiv.appendChild(description);
+
+    if (projectDiv.dataset.projectid === databaseHolder.selectedProjectID) {
+      projectDiv.classList.add("selectedProject");
+    }
   });
 }
 
