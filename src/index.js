@@ -51,9 +51,15 @@ holderDom.addToDoButton.addEventListener("click", (e) => {
 holderDom.formToDoCancelToDo.addEventListener("click", (e) => {
   renderToDoHolder.resetToDo();
 });
+//render todoitems?
 
 function initialize() {
   renderHolder.render();
+  renderToDoHolder.renderToDo();
+  console.log(databaseHolder.database);
+  console.log(databaseHolder.database[0]);
+  console.log(databaseHolder.database[0].todo[0]);
+  console.log(databaseHolder.database[0].todo[1]);
 }
 
 //for now

@@ -32,8 +32,10 @@ function create(arg) {
 }
 
 //database [{xxx, todo[{}]}]
-function createToDo(arg) {
-  arg.forEach((project) => {
+// arg = database[i].todo ??
+//i = index in database - get it from data of selected project div
+function createToDo(idk) {
+  idk.forEach((todo) => {
     const toDoDiv = document.createElement("div");
     const deleteImage = document.createElement("img");
     const editImage = document.createElement("img");
@@ -42,8 +44,30 @@ function createToDo(arg) {
     const toDoPriority = document.createElement("p");
     const toDoCheckList = document.createElement("p");
     const toDoDescription = document.createElement("p");
+    const linebreak = document.createElement("br");
+
+    toDoDiv.dataset.todoid = todo.id;
+    deleteImage.src = "images/deletePic.jpg";
+    deleteImage.dataset.tododelete = todo.id;
+    editImage.src = "images/editPic.jpg";
+    editImage.dataset.todoedit = todo.id;
+    toDoTitle.textContent = todo.title;
+    toDoDate.textContent = todo.date;
+    toDoPriority.textContent = todo.priority;
+    toDoCheckList.textContent = todo.status;
+    toDoDescription.textContent = todo.description;
+
+    holderDom.toDoItemsWrap.appendChild(toDoDiv);
+    toDoDiv.appendChild(deleteImage);
+    toDoDiv.appendChild(editImage);
+    toDoDiv.appendChild(toDoTitle);
+    toDoDiv.appendChild(toDoDate);
+    toDoDiv.appendChild(toDoPriority);
+    toDoDiv.appendChild(toDoCheckList);
+    toDoDiv.appendChild(linebreak);
+    toDoDiv.appendChild(toDoDescription);
   });
 }
 
-const createHolder = { create };
+const createHolder = { create, createToDo };
 export default createHolder;

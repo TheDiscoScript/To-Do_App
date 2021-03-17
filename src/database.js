@@ -62,14 +62,24 @@ function createDummy() {
     id: 0,
     title: "Base project",
     description: "Your project list will never be empty!",
-    todo: {
-      id: "0",
-      title: "To-Do Name",
-      description: "You can put your description here!",
-      date: renderToDoHolder.getTodayDate(),
-      priority: "",
-      status: "",
-    },
+    todo: [
+      {
+        id: "0",
+        title: "To-Do Name",
+        description: "You can put your description here!",
+        date: renderToDoHolder.getTodayDate(),
+        priority: "",
+        status: "",
+      },
+      {
+        id: "1",
+        title: "To-Do Name1",
+        description: "To-Do Description1",
+        date: renderToDoHolder.getTodayDate(),
+        priority: "",
+        status: "",
+      },
+    ],
   };
   database.push(object);
   return database;

@@ -1,5 +1,7 @@
 import holderDom from "./holdersForDom";
 import moment from "moment";
+import createHolder from "./create";
+import databaseHolder from "./database";
 
 function getTodayDate() {
   let thisDay = moment().format("YYYY-MM-DD");
@@ -14,6 +16,15 @@ function resetToDo() {
   holderDom.formToDoPriority.value = "emptyPriority";
   holderDom.formToDoStatus.value = "emptyStatus";
 }
+function clearContainer(arg) {
+  arg.innerHTML = "";
+}
 
-const renderToDoHolder = { resetToDo, getTodayDate };
+function renderToDo() {
+  clearContainer(holderDom.toDoItemsWrap);
+  //const pickedDat = databaseHolder.database[0].todo;
+  createHolder.createToDo(databaseHolder.database[0].todo);
+}
+
+const renderToDoHolder = { resetToDo, getTodayDate, renderToDo };
 export default renderToDoHolder;
