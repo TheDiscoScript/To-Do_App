@@ -1,6 +1,7 @@
 import holderDom from "./holdersForDom";
 import renderHolder from "./formRender";
 import renderToDoHolder from "./toDoRender";
+import { v4 as uuidv4 } from "uuid";
 
 //LOCAL STORAGE
 const LOCAL_STORAGE_DATABASE_KEY = "task.wholeDatabase";
@@ -41,21 +42,6 @@ function saveToLocalStorage() {
 }
 //LOCAL STORAGE
 
-/*let database = [
-  {
-    id: 0,
-    title: "test0",
-    description: "peniz0",
-    todo:{
-      id:
-      title: "test0",
-      description: "test0 description",
-      date: "YYYY-MM-DD",
-      priority: "",
-      status: ""
-    }
-  },
-];*/
 //0 items in database array
 function createDummy() {
   let object = {
@@ -84,6 +70,7 @@ function createDummy() {
   database.push(object);
   return database;
 }
+//ID
 function createID() {
   let increment = database[database.length - 1];
   let incrementId = increment.id;
@@ -100,11 +87,13 @@ function updateID() {
   return database;
 }
 
+//movementindatabase
 function pushIntoDatabase() {
   let object = {
     id: createID(),
     title: holderDom.formProjectName.value,
     description: holderDom.formProjectDescription.value,
+    todo: [],
   };
   database.push(object);
   saveToLocalStorage();
@@ -145,6 +134,21 @@ function updateProject() {
   }
   saveToLocalStorage();
 }
+//TODO functionality
+function pushToDoIntoProject() {
+  const selectedProjectForPush = document.querySelector(".selectedProject");
+  let objectToDo = {
+    id: uuidv4(),
+    title: holderDom.formToDoName.value,
+    description: holderDom.formToDoDescription.value,
+    date: holderDom.formToDoDate.value,
+    priority: holderDom.formToDoPriority.value,
+    status: holderDom.formToDoStatus.value,
+  };
+  database[selectedProjectForPush.dataset.projectid].todo.push(objectToDo);
+  saveToLocalStorage();
+  return database;
+}
 
 const databaseHolder = {
   database,
@@ -155,5 +159,7 @@ const databaseHolder = {
   updateProject,
   saveToLocalStorage,
   selectedProjectID,
+  //updateToDoId,
+  pushToDoIntoProject,
 };
 export default databaseHolder;

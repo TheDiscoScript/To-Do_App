@@ -36,11 +36,10 @@ holderDom.createProjectButton.addEventListener("click", (e) => {
 holderDom.projectContainer.addEventListener("click", (e) => {
   if (e.target.parentNode.tagName.toLowerCase() === "div") {
     //e.target.parentNode.classList.add("selectedProject");
-
     databaseHolder.selectedProjectID = e.target.parentNode.dataset.projectid;
     databaseHolder.saveToLocalStorage();
-
     renderHolder.render();
+    renderToDoHolder.renderToDo();
   }
 });
 //toDo items functions inc
@@ -52,10 +51,15 @@ holderDom.formToDoCancelToDo.addEventListener("click", (e) => {
   renderToDoHolder.resetToDo();
 });
 //render todoitems?
+holderDom.formToDoCreateTodo.addEventListener("click", (e) => {
+  if (holderDom.formToDoName.value == "") return;
+  databaseHolder.pushToDoIntoProject();
+  renderToDoHolder.renderToDo();
+  renderToDoHolder.resetToDo();
+});
 
 function initialize() {
   renderHolder.render();
-  renderToDoHolder.renderToDo();
   console.log(databaseHolder.database);
   console.log(databaseHolder.database[0]);
   console.log(databaseHolder.database[0].todo[0]);

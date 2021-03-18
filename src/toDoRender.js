@@ -21,9 +21,14 @@ function clearContainer(arg) {
 }
 
 function renderToDo() {
+  const selectedForShow = document.querySelector(".selectedProject");
+  const pickedDat =
+    databaseHolder.database[selectedForShow.dataset.projectid].todo;
   clearContainer(holderDom.toDoItemsWrap);
-  //const pickedDat = databaseHolder.database[0].todo;
-  createHolder.createToDo(databaseHolder.database[0].todo);
+
+  //data-projectid="0"
+
+  createHolder.createToDo(pickedDat);
 }
 
 const renderToDoHolder = { resetToDo, getTodayDate, renderToDo };

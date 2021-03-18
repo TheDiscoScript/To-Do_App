@@ -35,38 +35,44 @@ function create(arg) {
 // arg = database[i].todo ??
 //i = index in database - get it from data of selected project div
 function createToDo(idk) {
-  idk.forEach((todo) => {
-    const toDoDiv = document.createElement("div");
-    const deleteImage = document.createElement("img");
-    const editImage = document.createElement("img");
-    const toDoTitle = document.createElement("p");
-    const toDoDate = document.createElement("p");
-    const toDoPriority = document.createElement("p");
-    const toDoCheckList = document.createElement("p");
-    const toDoDescription = document.createElement("p");
-    const linebreak = document.createElement("br");
+  if (idk === undefined) {
+    return;
+  } else {
+    idk.forEach((todo) => {
+      const toDoDiv = document.createElement("div");
+      const deleteImage = document.createElement("img");
+      const editImage = document.createElement("img");
+      const toDoTitle = document.createElement("p");
+      const toDoDate = document.createElement("p");
+      const toDoPriority = document.createElement("p");
+      const toDoCheckList = document.createElement("p");
+      const toDoDescription = document.createElement("p");
+      const linebreak = document.createElement("br");
 
-    toDoDiv.dataset.todoid = todo.id;
-    deleteImage.src = "images/deletePic.jpg";
-    deleteImage.dataset.tododelete = todo.id;
-    editImage.src = "images/editPic.jpg";
-    editImage.dataset.todoedit = todo.id;
-    toDoTitle.textContent = todo.title;
-    toDoDate.textContent = todo.date;
-    toDoPriority.textContent = todo.priority;
-    toDoCheckList.textContent = todo.status;
-    toDoDescription.textContent = todo.description;
+      toDoDiv.dataset.todoid = todo.id;
+      toDoDiv.id = "item";
+      deleteImage.src = "images/deletePic.jpg";
+      deleteImage.dataset.tododelete = todo.id;
+      editImage.src = "images/editPic.jpg";
+      editImage.dataset.todoedit = todo.id;
+      toDoTitle.textContent = todo.title;
+      toDoTitle.classList.add("toDoTitle");
+      toDoDate.textContent = todo.date;
+      toDoPriority.textContent = todo.priority;
+      toDoCheckList.textContent = todo.status;
+      toDoDescription.textContent = todo.description;
 
-    holderDom.toDoItemsWrap.appendChild(toDoDiv);
-    toDoDiv.appendChild(deleteImage);
-    toDoDiv.appendChild(editImage);
-    toDoDiv.appendChild(toDoTitle);
-    toDoDiv.appendChild(toDoDate);
-    toDoDiv.appendChild(toDoPriority);
-    toDoDiv.appendChild(toDoCheckList);
-    toDoDiv.appendChild(linebreak);
-    toDoDiv.appendChild(toDoDescription);
-  });
+      holderDom.toDoItemsWrap.appendChild(toDoDiv);
+      toDoDiv.appendChild(deleteImage);
+      toDoDiv.appendChild(editImage);
+      toDoDiv.appendChild(toDoTitle);
+      toDoDiv.appendChild(toDoDate);
+      toDoDiv.appendChild(toDoPriority);
+      toDoDiv.appendChild(toDoCheckList);
+      toDoDiv.appendChild(linebreak);
+      toDoDiv.appendChild(toDoDescription);
+    });
+  }
 }
 
 const createHolder = { create, createToDo };
