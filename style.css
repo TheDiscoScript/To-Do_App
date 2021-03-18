@@ -258,6 +258,10 @@ textarea {
   min-width: 80%;
   display: block;
 }
+.toDoTitle {
+  text-decoration: underline;
+  font-weight: bold;
+}
 #item {
   border-bottom: rgb(254, 199, 47) solid;
   padding: 0.5rem;
