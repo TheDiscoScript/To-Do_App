@@ -4,7 +4,7 @@
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/Willdooo/odinProject_toDoList/graphs/commit-activity)
 [![License: ISC](https://img.shields.io/github/license/Willdooo/)](https://github.com/Willdooo/odinProject_toDoList/blob/master/LICENSE)
 
-> Third project I did after break from programming. I got used to using libraries, more files and importing functions and variables. Also managed to use a local storage. I had a blast making this project.used local storage
+> Third project I did after break from programming. I got used to using libraries, more files and importing functions and variables. Also managed to use a local storage. I had a blast making this project.
 
 ### 🏠 [Homepage](https://github.com/Willdooo/odinProject_toDoList#readme)
 
