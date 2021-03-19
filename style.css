@@ -6,6 +6,7 @@ body {
   padding: 0px;
 }
 
+/*project*/
 #formProjectWholeNone {
   display: none;
   background: rgba(0, 0, 0, 0.74);
@@ -58,6 +59,7 @@ textarea {
   padding: 1rem;
   width: 275px;
 }
+/*project edit*/
 #formProjectWholeNoneEdit {
   display: none;
   background: rgba(0, 0, 0, 0.74);
@@ -110,7 +112,7 @@ textarea {
   padding: 1rem;
   width: 275px;
 }
-
+/*TODO*/
 #formToDoWhole {
   display: none;
   background: rgba(0, 0, 0, 0.74);
@@ -163,7 +165,60 @@ textarea {
 #formToDoWrap button:hover {
   opacity: 0.8;
 }
-
+/*TODO edit*/
+#formToDoWholeEdit {
+  display: none;
+  background: rgba(0, 0, 0, 0.74);
+  z-index: 2;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+#formToDoWholeAbsoluteEdit {
+  display: absolute;
+  background: rgba(0, 0, 0, 0.74);
+  z-index: 2;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+#formToDoWrapEdit {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  padding: 5rem;
+  background-color: rgba(105, 105, 105, 0.829);
+}
+#formToDoWrapEdit label {
+  color: white;
+  font-size: 2rem;
+}
+#formToDoWrapEdit > label > input,
+textarea {
+  margin-top: 1rem;
+  padding: 1rem;
+  width: 275px;
+}
+#formToDoWrapEdit button {
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(254, 199, 47, 0.8);
+  font-size: 1.2rem;
+  font-weight: lighter;
+  padding: 0.8rem 1.3rem;
+  color: rgb(73, 76, 255);
+  cursor: pointer;
+  transition: ease-in 0.6ms opacity;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+#formToDoWrapEdit button:hover {
+  opacity: 0.8;
+}
+/*content*/
 #content {
   background-image: url(./images/upperBg.jpg);
   background-position: center;
