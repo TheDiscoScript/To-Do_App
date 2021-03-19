@@ -8,17 +8,6 @@
 
 ### 🏠 [Homepage](https://github.com/Willdooo/odinProject_toDoList#readme)
 
-## Install
-
-```sh
-npm install
-```
-
-## Run tests
-
-```sh
-npm run test
-```
 
 ## Author
 
