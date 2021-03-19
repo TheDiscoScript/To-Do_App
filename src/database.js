@@ -15,15 +15,15 @@ let database = JSON.parse(localStorage.getItem(LOCAL_STORAGE_DATABASE_KEY)) || [
       {
         id: "0",
         title: "To-Do Name",
-        description: "To-Do Description",
-        date: renderToDoHolder.getTodayDate(),
+        description: "You can put your description here!",
+        date: "",
         priority: "",
         status: "",
       },
       {
         id: "1",
-        title: "To-Do Name 1",
-        description: "To-Do Description 2",
+        title: "You can create projects without description!",
+        description: "To-Do Description1",
         date: renderToDoHolder.getTodayDate(),
         priority: "",
         status: "",
@@ -53,14 +53,14 @@ function createDummy() {
         id: "0",
         title: "To-Do Name",
         description: "You can put your description here!",
-        date: renderToDoHolder.getTodayDate(),
+        date: "",
         priority: "",
         status: "",
       },
       {
         id: "1",
-        title: "To-Do Name1",
-        description: "To-Do Description1",
+        title: "You can create projects without description!",
+        description: "",
         date: renderToDoHolder.getTodayDate(),
         priority: "",
         status: "",
@@ -107,6 +107,7 @@ function removeProject() {
   }
   updateID();
   saveToLocalStorage();
+  holderDom.toDoItemsWrap.innerHTML = "";
   renderHolder.render();
 }
 function editProject() {
@@ -133,6 +134,57 @@ function updateProject() {
     selectedProject.description = holderDom.formProjectDescriptionEdit.value;
   }
   saveToLocalStorage();
+}
+function editToDo() {
+  holderDom.formToDoWholeEdit.setAttribute("id", "formToDoWholeAbsoluteEdit");
+  holderDom.formToDoNameEdit.value =
+    event.target.parentNode.childNodes[2].textContent;
+  holderDom.formToDoDescriptionEdit.value =
+    event.target.parentNode.childNodes[7].textContent;
+  holderDom.formToDoDateEdit.value =
+    event.target.parentNode.childNodes[3].textContent;
+  holderDom.formToDoPriorityEdit.value =
+    event.target.parentNode.childNodes[4].textContent;
+  holderDom.formToDoStatusEdit.value =
+    event.target.parentNode.childNodes[5].textContent;
+  let idOfToDo = event.target.parentNode.getAttribute("data-todoid");
+  holderDom.formToDoUpdateEdit.setAttribute("data-idoftodo", idOfToDo);
+}
+function updateToDo() {
+  const selectedProjectSelector = document.querySelector(".selectedProject");
+  let selectedProjectTodos =
+    database[selectedProjectSelector.dataset.projectid].todo;
+
+  for (let i = 0; i < selectedProjectTodos.length; i++) {
+    if (event.target.dataset.idoftodo == selectedProjectTodos[i].id) {
+      selectedProjectTodos[i].title = holderDom.formToDoNameEdit.value;
+      selectedProjectTodos[i].description =
+        holderDom.formToDoDescriptionEdit.value;
+      selectedProjectTodos[i].date = holderDom.formToDoDateEdit.value;
+      selectedProjectTodos[i].priority = holderDom.formToDoPriorityEdit.value;
+      selectedProjectTodos[i].status = holderDom.formToDoStatusEdit.value;
+      if (selectedProjectTodos[i].status.value == "Done") {
+        event.target.parentNode.className.add("good job!");
+      }
+    }
+  }
+  saveToLocalStorage();
+}
+//credit for next function
+//https://stackoverflow.com/questions/16491758/remove-objects-from-array-by-object-property
+function removeToDo() {
+  //get Project
+  const selectedProjectSelector = document.querySelector(".selectedProject");
+  let selectedProjectTodos =
+    database[selectedProjectSelector.dataset.projectid].todo;
+  //get ID that will go in indexof() = this will get us index
+  let idVar = event.target.dataset.tododelete;
+  // varriable that will be actuall index
+  let removeIndex = selectedProjectTodos.map((item) => item.id).indexOf(idVar);
+  selectedProjectTodos.splice(removeIndex, 1);
+  saveToLocalStorage();
+  holderDom.toDoItemsWrap.innerHTML = "";
+  renderToDoHolder.renderToDo();
 }
 //TODO functionality
 function pushToDoIntoProject() {
@@ -161,5 +213,8 @@ const databaseHolder = {
   selectedProjectID,
   //updateToDoId,
   pushToDoIntoProject,
+  editToDo,
+  updateToDo,
+  removeToDo,
 };
 export default databaseHolder;

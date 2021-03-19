@@ -57,7 +57,17 @@ holderDom.formToDoCreateTodo.addEventListener("click", (e) => {
   renderToDoHolder.renderToDo();
   renderToDoHolder.resetToDo();
 });
-
+//cancel edit
+holderDom.formToDoCancelToDoEdit.addEventListener("click", (e) => {
+  renderToDoHolder.resetToDo();
+  holderDom.formToDoWholeEdit.setAttribute("id", "formToDoWholeEdit");
+});
+//edit todo update
+holderDom.formToDoUpdateEdit.addEventListener("click", (e) => {
+  databaseHolder.updateToDo();
+  renderToDoHolder.renderToDo();
+  holderDom.formToDoWholeEdit.setAttribute("id", "formToDoWholeEdit");
+});
 function initialize() {
   renderHolder.render();
   console.log(databaseHolder.database);
