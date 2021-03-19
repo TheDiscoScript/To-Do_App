@@ -1,6 +1,7 @@
 import holderDom from "./holdersForDom";
 import createHolder from "./create";
 import databaseHolder from "./database";
+import renderToDoHolder from "./toDoRender";
 
 function clearContainer(arg) {
   arg.innerHTML = "";

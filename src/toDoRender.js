@@ -27,9 +27,25 @@ function renderToDo() {
   clearContainer(holderDom.toDoItemsWrap);
 
   //data-projectid="0"
-
   createHolder.createToDo(pickedDat);
+  //edit listener
+  document.querySelectorAll("[data-todoedit]").forEach((editimg) => {
+    editimg.addEventListener("click", (event) => {
+      databaseHolder.editToDo();
+    });
+  });
+  //delete listener
+  document.querySelectorAll("[data-tododelete]").forEach((deleteimg) => {
+    deleteimg.addEventListener("click", (e) => {
+      databaseHolder.removeToDo();
+    });
+  });
 }
 
-const renderToDoHolder = { resetToDo, getTodayDate, renderToDo };
+const renderToDoHolder = {
+  resetToDo,
+  getTodayDate,
+  renderToDo,
+  clearContainer,
+};
 export default renderToDoHolder;
