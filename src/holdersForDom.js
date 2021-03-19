@@ -35,6 +35,20 @@ function abot1() {
   const formToDoStatus = document.getElementById("formToDoStatus");
   const formToDoCreateTodo = document.getElementById("formToDoCreateTodo");
   const formToDoCancelToDo = document.getElementById("formToDoCancelToDo");
+  //todos edit
+  const formToDoWholeEdit = document.getElementById("formToDoWholeEdit");
+  const formToDoWrapEdit = document.getElementById("formToDoWrapEdit");
+  const formToDoNameEdit = document.getElementById("formToDoNameEdit");
+  const formToDoDescriptionEdit = document.getElementById(
+    "formToDoDescriptionEdit"
+  );
+  const formToDoDateEdit = document.getElementById("formToDoDateEdit");
+  const formToDoPriorityEdit = document.getElementById("formToDoPriorityEdit");
+  const formToDoStatusEdit = document.getElementById("formToDoStatusEdit");
+  const formToDoUpdateEdit = document.getElementById("formToDoCreateTodoEdit");
+  const formToDoCancelToDoEdit = document.getElementById(
+    "formToDoCancelToDoEdit"
+  );
 
   return {
     projectContainer,
@@ -61,6 +75,16 @@ function abot1() {
     formToDoStatus,
     formToDoCreateTodo,
     formToDoCancelToDo,
+    //TODOS edit
+    formToDoWholeEdit,
+    formToDoWrapEdit,
+    formToDoNameEdit,
+    formToDoDescriptionEdit,
+    formToDoDateEdit,
+    formToDoPriorityEdit,
+    formToDoStatusEdit,
+    formToDoUpdateEdit,
+    formToDoCancelToDoEdit,
   };
 }
 const holderDom = abot1();
