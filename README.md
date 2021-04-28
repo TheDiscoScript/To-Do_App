@@ -6,8 +6,9 @@
 
 > Third project I did after break from programming. I got used to using libraries, more files and importing functions and variables. Also managed to use a local storage. I had a blast making this project.
 
-### 🏠 [Homepage](https://github.com/Willdooo/odinProject_toDoList#readme)
+### 🏠 [Homepage](https://willdooo.github.io/To-Do_App/)
 
+https://willdooo.github.io/To-Do_App/
 
 ## Author
 
